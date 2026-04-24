@@ -289,6 +289,9 @@ export default function App() {
         case 'EMPTY_RESPONSE':
           errorMessage = 'The AI returned an empty response. Try rephrasing your question.';
           break;
+        case 'MISSING_API_KEY':
+          errorMessage = 'The Gemini API key is missing. Please add VITE_GEMINI_API_KEY to your environment variables.';
+          break;
         case 'GENERIC_API_ERROR':
           errorMessage = 'Failed to connect to the AI service. Check your internet connection.';
           break;
