@@ -290,10 +290,16 @@ export default function App() {
           errorMessage = 'The AI returned an empty response. Try rephrasing your question.';
           break;
         case 'MISSING_API_KEY':
-          errorMessage = 'The Gemini API key is missing. Please add VITE_GEMINI_API_KEY to your environment variables.';
+          errorMessage = 'API Key is missing. Add VITE_GEMINI_API_KEY to your Netlify Environment Variables.';
+          break;
+        case 'INVALID_API_KEY':
+          errorMessage = 'The API key provided is invalid. Please check your Netlify environment settings.';
+          break;
+        case 'QUOTA_EXCEEDED':
+          errorMessage = 'API Limit reached for this key. Please try again later or check your Google AI Studio quota.';
           break;
         case 'GENERIC_API_ERROR':
-          errorMessage = 'Failed to connect to the AI service. Check your internet connection.';
+          errorMessage = 'Failed to connect to the AI service. Check your internet connection or API settings.';
           break;
       }
 

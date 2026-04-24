@@ -54,12 +54,20 @@ export async function solveProblem({ subject, prompt, image }: GenerationParams)
     return response.text;
   } catch (error: any) {
     console.error("Gemini API Error:", error);
-    if (error.message?.includes("quota")) {
+    
+    const message = error.message || "";
+    
+    if (message === "MISSING_API_KEY") throw error;
+    if (message.includes("quota") || message.includes("429")) {
       throw new Error("QUOTA_EXCEEDED");
     }
-    if (error.message?.includes("safety")) {
+    if (message.includes("API key not valid") || message.includes("403")) {
+      throw new Error("INVALID_API_KEY");
+    }
+    if (message.includes("safety")) {
       throw new Error("SAFETY_VIOLATION");
     }
+    
     throw new Error("GENERIC_API_ERROR");
   }
 }
