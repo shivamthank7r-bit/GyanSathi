@@ -1,0 +1,11 @@
+{
+  "name": "GyanSathi",
+  "description": "Multi-subject AI assistant for solving Nepali, Hindi, English, Math, Physics, Chemistry, and Biology problems with photo upload support.",
+  "requestFramePermissions": [
+    "camera"
+  ],
+  "majorCapabilities": [
+    "Multimodal AI",
+    "STEM Solving"
+  ]
+}
